@@ -1,0 +1,50 @@
+﻿@model EF_DBFirst.Models.Product
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<table class="table">
+    <tr>
+        <td>productID</td>
+        <td>@Model.ProductId</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>@Model.ProductName</td>
+    </tr>
+    <tr>
+        <td>price</td>
+        <td>@Model.Price</td>
+    </tr>
+    <tr>
+        <td>Date of purchase</td>
+        <td>@Model.DateOfPurchase</td>
+    </tr>
+    <tr>
+        <td>Date of purchase</td>
+        <td>@Model.DateOfPurchase</td>
+    </tr>
+    <tr>
+        <td>availablity</td>
+        <td>@Model.AvailabilityStatus</td>
+    </tr>
+    <tr>
+        <td>CategoryID</td>
+        <td>@Model.CategoryId</td>
+    </tr>
+    <tr>
+        <td>Brand id</td>
+        <td>@Model.BrandId</td>
+    </tr>
+    <tr>
+        <td>Active</td>
+        <td>@Model.Active</td>
+    </tr>
+   
+
+
+
+</table>
+<a href="@Url.Action("Index","Product")">click here to return</a>
+

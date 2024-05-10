@@ -1,0 +1,40 @@
+﻿@model List<Product>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<form class="p-2  d-flex " action="/product/index">
+    <label for="search" class="mx-2 my-1">Search</label>
+    <input type="searh" class="form-control w-auto" id="search" name="search" value="@ViewBag.Search">
+    <button type="submit" class="btn btn-primary mx-2">Search</button>
+
+
+</form>
+
+<h1>Product</h1>
+<table class="table">
+    <tr>
+        <td>Product ID</td>
+        <td>Product Name</td>
+        <td>Product price</td>
+        <td>Date of purchase</td>
+        <td>Availability</td>
+        <td>Category ID</td>
+        <td>brand id</td>
+        <td>active</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductId</td>
+            <td><a href="/product/detail/@item.ProductId">@item.ProductName</a></td>
+            <td>@item.Price.Value.ToString("C")</td>
+            <td>@item.DateOfPurchase</td>
+            <td>@item.AvailabilityStatus</td>
+            <td>@item.CategoryId</td>
+            <td>@item.BrandId</td>
+            <td>@item.Active</td>
+        </tr>
+    }
+</table>

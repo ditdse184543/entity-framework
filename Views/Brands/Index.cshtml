@@ -1,0 +1,18 @@
+﻿@model List<Brand>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+<table class="table">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.BrandId</td>
+            <td>@item.BrandName</td>
+        </tr>
+    }
+</table>
