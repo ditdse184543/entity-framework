@@ -13,11 +13,49 @@
 </form>
 
 <h1>Product</h1>
+<a href="/product/create">Create a new product</a>
+@{
+    string iconClass="";
+    if (ViewBag.IconClass == "fa-sort-desc")
+    {
+        iconClass = "fa-sort-asc";
+    }else
+    {
+        iconClass = "fa-sort-desc";
+    }
+
+}
+
+
 <table class="table">
     <tr>
-        <td>Product ID</td>
-        <td>Product Name</td>
-        <td>Product price</td>
+        <th>
+            <a href="/product/index?SortColumn=ProductId&iconClass=@iconClass">ProductID"</a>
+            @if (ViewBag.SortColumn=="ProductId")
+            {
+                <i class="fa @ViewBag.IconClass"></i>
+            }
+        
+        
+        </th>
+        <th>
+            <a href="/product/index?SortColumn=ProductName&iconClass=@iconClass">ProductName"</a>
+            @if (ViewBag.SortColumn == "ProductId")
+            {
+                <i class="fa @ViewBag.IconClass"></i>
+            }
+
+
+        </th>
+        <th>
+            <a href="/product/index?SortColumn=Price&iconClass=@iconClass">Price</a>
+            @if (ViewBag.SortColumn == "Price")
+            {
+                <i class="fa @ViewBag.IconClass"></i>
+            }
+
+
+        </th>
         <td>Date of purchase</td>
         <td>Availability</td>
         <td>Category ID</td>
@@ -32,9 +70,11 @@
             <td>@item.Price.Value.ToString("C")</td>
             <td>@item.DateOfPurchase</td>
             <td>@item.AvailabilityStatus</td>
-            <td>@item.CategoryId</td>
-            <td>@item.BrandId</td>
+            <td>@item.Category.CategoryName</td> 
+            <td>@item.Brand.BrandName</td>
             <td>@item.Active</td>
+            <td> <a href="/product/edit/@item.ProductId">Edit</a>  </td>
+            <td> <a href="/product/delete/@item.ProductId">Delete</a></td>
         </tr>
     }
 </table>

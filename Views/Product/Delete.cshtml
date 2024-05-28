@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+<h1>Delete</h1>
+<form action="/product/delete/@Model.ProductId" method="post">
+    <div class="row">
+
+        <div class="col-md-6">
+            <label for="ProductId">ProductID</label>
+            <input type="text" class="form-control" id="ProductId" name="ProductId" placeholder="ProductId" value="@Model.ProductId" readonly
+        </div>
+        <div class="col-md-6">
+            <label for="ProductName">ProductName</label>
+            <input type="text" class="form-control" id="ProductName" name="ProductName" placeholder="Product Name" value="@Model.ProductName"
+        </div>
+        <div class="col-md-6">
+            <label for="Price">Price</label>
+            <input type="text" class="form-control" id="Price" name="Price" placeholder="Price " value="@Model.Price"
+        </div>
+    </div>
+   <button type="submit" class="btn-danger" >Delete</button>
+   <a href="product">Cancel</a>
+    <style>
+        .btn-danger {
+            background-color: #dc3545; /* Set the default background color to red */
+            color: #fff; /* Set text color to white */
+            border: none; /* Remove border */
+            padding: 10px 20px; /* Add padding */
+            cursor: pointer; /* Change cursor to pointer on hover */
+        }
+
+            .btn-danger:hover {
+                background-color: #c82333; /* Change background color to a darker shade of red */
+            }
+    </style>
+
+</form>
